@@ -125,6 +125,7 @@
   .whw ul{margin:0;padding-left:18px;color:var(--green)}
   .whw li{margin-bottom:6px}
   .whw li::marker{color:var(--burgundy)}
+  .whw li b{color:var(--burgundy);font-weight:600}
 
   .video-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--blush);color:var(--burgundy);border:1.5px solid var(--burgundy);border-radius:10px;padding:20px 24px;margin-bottom:28px}
   .video-cta p{margin:0;color:var(--burgundy);max-width:520px}
@@ -214,7 +215,7 @@
         <div>
           <h3>Upper-Body Force-Feedback Exoskeleton</h3>
           <div class="p-meta">Humanoid teleoperation · Started at Minerva Humanoids, continuing as my FYDP</div>
-          <div class="tags"><span>Mechanical design</span><span>Wiring &amp; schematics</span><span>Motor-control firmware</span><span>CAN bus</span><span>User testing</span></div>
+          <div class="tags"><span>Mechanical design</span><span>Rapid prototyping</span><span>MuJoCo</span><span>Motor-control firmware</span><span>CAN bus</span><span>User testing</span></div>
         </div>
         <span class="status">In progress · FYDP</span>
       </div>
@@ -226,23 +227,26 @@
       <div class="whw">
         <div class="what">
           <h4>What</h4>
-          <p>A wearable upper-body exoskeleton for teleoperating a humanoid robot. It relays the robot's contact forces back to the operator's arms, so they can feel what the robot is doing and control it more accurately.</p>
+          <p>A wearable upper-body exoskeleton for teleoperating a humanoid robot. It feeds the robot's contact forces back to the operator's arms for more accurate control, and must adjust to fit individual users.</p>
         </div>
         <div class="how">
           <h4>How</h4>
           <ul>
-            <li>Owned the full design and build: mechanical, wiring diagrams and schematics, and motor-control firmware</li>
-            <li>Built an arm fixture with an elbow motor controlled over CAN bus to test force feedback on real users</li>
-            <li>Ran user tests to find the maximum safe torque and the smallest torque change people could feel, which set the motor requirements</li>
-            <li>Built and wore the first arm: backpack frame, harness, and shoulder and elbow joints</li>
+            <li>Researched exoskeleton designs and actuation methods: pulley systems, rotary, linear and pneumatic</li>
+            <li>Rapid-prototyped shoulder motor layouts with bearings and 3D-printed parts to find one that works</li>
+            <li>Validated designs in MuJoCo before printing and testing them in real life</li>
+            <li>Ran user tests on an elbow-motor fixture (CAN bus) to set the motor requirements</li>
+            <li>Owned mechanical, electrical and firmware design; built and wore the first arm</li>
           </ul>
         </div>
         <div class="why">
           <h4>Lessons so far</h4>
           <ul>
-            <li>Test with people before choosing hardware; user tests set the motor requirements</li>
-            <li>How noticeable a force change is depends on the force already applied, so feedback can't use one fixed step size</li>
-            <li>For a wearable, fit and comfort matter as much as performance</li>
+            <li>Reference papers with proven results for what you're trying to achieve</li>
+            <li>Nail down requirements early and map them to technical specs to prioritize trade-offs</li>
+            <li>Test with people before choosing hardware</li>
+            <li>Force changes are felt relative to the force already applied</li>
+            <li>For a wearable, fit matters as much as performance</li>
           </ul>
         </div>
       </div>
@@ -267,41 +271,41 @@
         <figure class="contain"><img src="images/sr-wheel.jpg" alt="Wheel designed in SolidWorks" loading="lazy"><figcaption>Wheel (CAD)</figcaption></figure>
       </div>
 
-      <p class="sub-head">Controller tuning, from my logging tool</p>
+      <p class="sub-head">Controller tuning</p>
       <div class="plots">
-        <figure class="before"><img src="images/sr-plot-before.jpg" alt="Wheel speed versus time before tuning, both wheels well above the dashed target line" loading="lazy"><figcaption><b>Before tuning</b>Both wheels ran well above the target speed (dashed line).</figcaption></figure>
-        <figure class="after"><img src="images/sr-plot-after.jpg" alt="Wheel speed versus time after tuning, both wheels tracking the dashed target line" loading="lazy"><figcaption><b>After tuning</b>Both wheels hold the target speed (note the zoomed-in axis).</figcaption></figure>
-        <figure><img src="images/sr-plot-system.jpg" alt="Full system log showing yaw command versus heading and wheel speeds versus targets" loading="lazy"><figcaption><b>Full system log</b>Yaw command vs. heading, and each wheel's speed vs. its target.</figcaption></figure>
+        <figure class="before"><img src="images/sr-plot-before.jpg" alt="Wheel speed versus time before tuning, with both wheels oscillating" loading="lazy"><figcaption><b>Before tuning</b>Wheel speeds oscillate.</figcaption></figure>
+        <figure class="after"><img src="images/sr-plot-after.jpg" alt="Wheel speed versus time after tuning, with both wheels settling to a steady speed" loading="lazy"><figcaption><b>After tuning</b>Both wheels settle fast and hold steady.</figcaption></figure>
+        <figure><img src="images/sr-plot-system.jpg" alt="Full system log showing yaw command versus heading and wheel speeds versus targets" loading="lazy"><figcaption><b>Full system log</b>Heading vs. yaw command; each wheel vs. its target.</figcaption></figure>
       </div>
 
       <div class="video-cta">
         <div><strong>Watch it run</strong><p>Line following, zone detection and gripper control in action.</p></div>
-        <a class="btn primary" href="https://www.youtube.com/watch?v=KuxWpHWcA80" target="_blank" rel="noopener">▶ Project video</a>
+        <a class="btn primary" href="PASTE_YOUTUBE_LINK_HERE" target="_blank" rel="noopener">▶ Project video</a>
       </div>
 
       <div class="whw">
         <div class="what">
           <h4>What</h4>
-          <p>A fully autonomous robot that follows a line with OpenCV, detects the target and safe zones, and uses a gripper to move the target, inside a 0.22 × 0.22 × 0.25 m envelope. Scored on speed and successful runs out of 3.</p>
+          <p>An autonomous robot that follows a line, finds a target and moves it to a safe zone with a gripper. Limits: 0.22 × 0.22 × 0.25 m and a $300 budget. Scored on speed, weight, and successful runs out of 3.</p>
         </div>
         <div class="how">
           <h4>How</h4>
           <ul>
-            <li>Sized and sourced the drive motors from design calculations</li>
-            <li>Wrote C++ motor firmware (PWM + encoder feedback) for differential drive and the gripper</li>
-            <li>Closed-loop wheel-velocity P-controller, with vision, control and motor loops on separate threads</li>
-            <li>Replaced an unreliable IMU with encoder-based state estimation and motion primitives (precise distance, in-place turns, active braking)</li>
-            <li>Built a Python logging and plotting tool to tune 40+ control parameters</li>
-            <li>Designed drive-system parts in SolidWorks</li>
+            <li>Sized and selected the drive motors</li>
+            <li>C++ motor firmware: PWM, encoder feedback, closed-loop speed control</li>
+            <li>Vision, control and motor loops on separate threads</li>
+            <li>Swapped an unreliable IMU for encoder-based odometry</li>
+            <li>Python logging tool to tune 40+ parameters</li>
+            <li>Drive-system parts in SolidWorks</li>
           </ul>
         </div>
         <div class="why">
           <h4>Lessons</h4>
           <ul>
-            <li>Start firmware early; late integration caused the biggest delays</li>
-            <li>Simple beats complex: encoders outperformed the IMU</li>
-            <li>Real dynamics need empirical tuning, not just calculation</li>
-            <li>Most bugs were system-level (hardware × firmware), not isolated</li>
+            <li>Start firmware early</li>
+            <li>Simple beats complex: encoders beat the IMU</li>
+            <li>Real dynamics need empirical tuning</li>
+            <li>Most bugs came from hardware × firmware interactions</li>
           </ul>
         </div>
       </div>
@@ -312,37 +316,35 @@
       <div class="p-top">
         <div>
           <h3>Two-Axis Gantry Embedded Control System</h3>
-          <div class="p-meta">Embedded control &amp; safety · STM32</div>
-          <div class="tags"><span>C</span><span>STM32</span><span>Interrupts &amp; timers</span><span>ADC / UART</span><span>Oscilloscope</span></div>
+          <div class="p-meta">Embedded control &amp; safety · STM32 · lead-screw axes</div>
+          <div class="tags"><span>C</span><span>STM32</span><span>ADC</span><span>Interrupts &amp; timers</span><span>Limit-switch safety</span><span>Oscilloscope</span></div>
         </div>
       </div>
       <div class="gallery">
         <figure><img src="images/gantry-rig.jpg" alt="Two-axis gantry test rig with target plate" loading="lazy"><figcaption>Test rig</figcaption></figure>
-        <figure class="contain"><img src="images/gantry-diagram.jpg" alt="Annotated diagram of the gantry showing motors, belt, carriage and limit switches" loading="lazy"><figcaption>System layout</figcaption></figure>
-        <figure class="contain"><img src="images/gantry-schematic.jpg" alt="Hand-drawn I/O schematic for the STM32 controller" loading="lazy"><figcaption>I/O schematic</figcaption></figure>
+        <figure class="contain" style="grid-column:span 2"><img src="images/gantry-schematic.jpg" alt="Hand-drawn I/O schematic for the STM32 controller" loading="lazy"><figcaption>I/O schematic</figcaption></figure>
         <figure style="grid-column:span 2"><img src="images/gantry-board.jpg" alt="STM32 board wired to breadboard with potentiometer" loading="lazy"><figcaption>STM32 + pots</figcaption></figure>
       </div>
       <div class="whw">
         <div class="what">
           <h4>What</h4>
-          <p>The full control and safety system for a two-axis gantry: I/O design, schematic, potentiometer motor input, and positioning repeatable to within 1 cm.</p>
+          <p>Control a lead-screw two-axis gantry with two potentiometers on an STM32, with a limit-switch safety layer. The target must be repeatable to within 1 cm.</p>
         </div>
         <div class="how">
           <h4>How</h4>
           <ul>
-            <li>Configured GPIO and memory-mapped I/O to drive motors and read limit switches</li>
-            <li>Replaced polling with interrupt- and timer-based motion control, then simplified the interrupt structure to remove callback conflicts</li>
-            <li>Fail-safe normally-closed limit switches with automatic motor-reverse recovery</li>
-            <li>ADC readings logged over UART (PuTTY); verified on hardware with an oscilloscope and step-by-step motion tests</li>
+            <li><b>Key decision:</b> each pot maps to an X–Y position, not direction/speed, for better accuracy and repeatability</li>
+            <li>Homing sequence at start-up finds each axis's full range, so ADC readings map to accurate positions</li>
+            <li>Limit switches as a safety layer: if one is hit, the axis backs off slightly</li>
+            <li>Interrupt- and timer-based motion control; tested with UART logs and an oscilloscope</li>
           </ul>
         </div>
         <div class="why">
           <h4>Lessons</h4>
           <ul>
+            <li>Home first: knowing the full range makes every reading meaningful</li>
+            <li>Build fail-safes in from day one</li>
             <li>Interrupts beat polling for real-time control</li>
-            <li>Build fail-safes into hardware and software from day one</li>
-            <li>Simpler interrupt structures mean fewer timing bugs</li>
-            <li>Hardware bring-up finds timing, noise and I/O issues fastest</li>
           </ul>
         </div>
       </div>
@@ -412,16 +414,16 @@
       <div class="whw">
         <div class="what">
           <h4>What</h4>
-          <p>Structural analysis and dashboard redesign for the team's electric motorcycle.</p>
+          <p>Converting a gas Kawasaki motorcycle the team bought into an electric motorcycle. My focus: structural analysis and the dashboard.</p>
         </div>
         <div class="how">
           <h4>How</h4>
           <ul>
-            <li>Led FMEA across motorcycle subsystems to catch structural and mounting weak points early</li>
-            <li>Ran static FEA on the steel frame in SolidWorks and raised safety factors to cover dynamic loads</li>
-            <li>No CAD existed for the stock dashboard, so I measured it and re-modelled it in SolidWorks as the base for the new enclosure</li>
-            <li>Replaced the mechanical gauges with a PCB-based digital display in a new waterproof enclosure</li>
-            <li>Iterated CAD for the dashboard and motor-wheel assemblies to resolve fit and mounting conflicts</li>
+            <li>Led FMEA on the motorcycle's subsystems</li>
+            <li>Ran static FEA on the steel frame, raising safety factors to cover dynamic loads</li>
+            <li>Re-modelled the stock dashboard in SolidWorks from hand measurements</li>
+            <li>Designed a waterproof enclosure for a new PCB-based digital display</li>
+            <li>Iterated CAD for the dashboard and motor-wheel assemblies</li>
           </ul>
         </div>
         <div class="why">
@@ -502,8 +504,8 @@
     <div class="sec-head"><span class="num">04</span><h2>Sensors &amp; Devices from Internships</h2></div>
     <p class="sec-sub">Hardware I've worked with hands-on: integrating, testing and validating.</p>
     <div class="sensors">
-      <div class="sensor"><div class="ph"><img src="images/dev-booster.jpg" alt="Booster T1 humanoid robot" loading="lazy"></div><span class="from">Minerva Humanoids</span><b>Booster T1 humanoid</b><span>Humanoid robot platform used for motor and controller testing</span></div>
-      <div class="sensor"><div class="ph"><img src="images/dev-cubemars.jpg" alt="CubeMars AK-series actuators" loading="lazy"></div><span class="from">Minerva Humanoids</span><b>CubeMars AK-series actuators</b><span>Brushless actuators used for motor testing and characterization</span></div>
+      <div class="sensor"><div class="ph"><img src="images/dev-booster.jpg" alt="Booster T1 humanoid robot" loading="lazy"></div><b>Booster T1 humanoid</b><span>Humanoid robot platform used for motor and controller testing</span></div>
+      <div class="sensor"><div class="ph"><img src="images/dev-cubemars.jpg" alt="CubeMars AK-series actuators" loading="lazy"></div><b>CubeMars AK-series actuators</b><span>Brushless actuators used for motor testing and characterization</span></div>
       <div class="sensor"><div class="ph"><img src="images/dev-keyence-ix.jpg" alt="Keyence IX laser sensor over parts on a conveyor" loading="lazy"></div><b>Keyence IX-150</b><span>Surface planarity relative to a mounting nest</span></div>
       <div class="sensor"><div class="ph"><img src="images/dev-gocator.jpg" alt="LMI Gocator 3D sensor" loading="lazy"><img src="images/dev-gocator-scan.jpg" alt="Gocator 3D scan of a part" loading="lazy"></div><b>LMI Gocator 5512</b><span>Epoxy fill height in opaque containers</span></div>
       <div class="sensor"><div class="ph"><img src="images/dev-nordson.jpg" alt="Nordson PICO jet dispensing system" loading="lazy"></div><b>Nordson jet dispensing</b><span>Precise epoxy dispensing into small containers</span></div>
