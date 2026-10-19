@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Celine Ebrahimian — Engineering Portfolio</title>
+<meta name="description" content="Engineering portfolio of Celine Ebrahimian, Mechatronics Engineering at the University of Waterloo. Firmware, controls, embedded systems and mechanical design projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#264653; --navy-deep:#1b343e; --teal:#2a9d8f; --mustard:#e9c46a;
+    --cream:#f6f1ec; --paper:#fffdfa; --ink:#1d2a30; --muted:#5b6b72; --line:#e3dad1;
+    --radius:14px; --max:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;line-height:1.15;margin:0}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(27,52,62,.94);backdrop-filter:blur(8px);color:#fff}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+  .mark{font-family:"Space Grotesk";font-weight:700;text-decoration:none;letter-spacing:.02em}
+  .mark span{color:var(--mustard)}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px}
+  nav ul a{text-decoration:none;opacity:.8}
+  nav ul a:hover{opacity:1;color:var(--mustard)}
+  @media (max-width:720px){nav ul{display:none}}
+
+  /* hero */
+  header.hero{background:var(--navy);color:#fff;padding:88px 0 96px;position:relative;overflow:hidden}
+  header.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .eyebrow{font-family:"JetBrains Mono";font-size:13px;color:var(--mustard);letter-spacing:.08em;text-transform:uppercase}
+  .hero h1{font-size:clamp(40px,7vw,76px);font-weight:600;margin:14px 0 18px;letter-spacing:-.02em}
+  .hero p.lede{max-width:620px;font-size:clamp(17px,2vw,20px);color:#d9e4e7;margin:0 0 32px}
+  .btns{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid transparent;transition:transform .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn.primary{background:var(--mustard);color:var(--navy-deep)}
+  .btn.ghost{border-color:rgba(255,255,255,.4);color:#fff}
+  .btn.dark{background:var(--navy);color:#fff}
+  .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:44px}
+  .skills span{font-family:"JetBrains Mono";font-size:12.5px;padding:5px 10px;border-radius:6px;background:rgba(255,255,255,.08);color:#e6eef0}
+
+  /* sections */
+  section{padding:84px 0 20px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:32px}
+  .sec-head .num{font-family:"JetBrains Mono";color:var(--teal);font-size:14px}
+  .sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.01em}
+  .sec-sub{color:var(--muted);margin:-18px 0 32px;max-width:640px}
+
+  /* project card */
+  .project{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px;margin-bottom:28px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 8px 24px -16px rgba(38,70,83,.25)}
+  .p-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;align-items:flex-start;margin-bottom:22px}
+  .project h3{font-size:clamp(22px,3vw,28px);font-weight:600}
+  .p-meta{font-family:"JetBrains Mono";font-size:13px;color:var(--muted);margin-top:6px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .tags span{font-size:12.5px;font-weight:500;padding:4px 10px;border-radius:999px;background:#e8f3f1;color:#1f6f66}
+
+  .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:150px;gap:10px;margin-bottom:28px}
+  .gallery figure{margin:0;border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--line);cursor:zoom-in;position:relative}
+  .gallery figure:first-child{grid-row:span 2}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+  .gallery figure.contain img{object-fit:contain;padding:6px}
+  .gallery figure:hover img{transform:scale(1.03)}
+  .gallery figcaption{position:absolute;left:8px;bottom:8px;font-size:11.5px;font-family:"JetBrains Mono";background:rgba(27,52,62,.85);color:#fff;padding:3px 8px;border-radius:5px}
+  @media (max-width:720px){.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:130px}.gallery figure:first-child{grid-column:span 2;grid-row:span 2}}
+  /* portrait gallery (three tall photos side by side) */
+  .gallery.portrait{grid-template-columns:repeat(3,1fr);grid-auto-rows:auto}
+  .gallery.portrait figure{aspect-ratio:3/4}
+  .gallery.portrait figure:first-child{grid-row:auto}
+  @media (max-width:720px){.gallery.portrait{grid-template-columns:1fr 1fr}.gallery.portrait figure:first-child{grid-column:span 2;grid-row:auto}}
+  .status{display:inline-flex;align-items:center;gap:7px;font-family:"JetBrains Mono";font-size:12px;font-weight:500;padding:5px 11px;border-radius:999px;background:#fbf1d6;color:#7a5a07;white-space:nowrap}
+  .status::before{content:"";width:7px;height:7px;border-radius:50%;background:#e9a23b;box-shadow:0 0 0 3px rgba(233,162,59,.25)}
+  .update-note{font-size:13.5px;color:var(--muted);font-style:italic;margin:22px 0 0}
+
+  .whw{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:28px}
+  @media (max-width:900px){.whw{grid-template-columns:1fr}}
+  .whw h4{font-family:"JetBrains Mono";font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .whw h4::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--c,var(--teal))}
+  .whw .what{--c:var(--mustard)} .whw .how{--c:var(--teal)} .whw .why{--c:var(--navy)}
+  .whw p{margin:0;color:#34444b}
+  .whw ul{margin:0;padding-left:18px;color:#34444b}
+  .whw li{margin-bottom:6px}
+  .whw li::marker{color:var(--teal)}
+
+  .video-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--navy);color:#fff;border-radius:10px;padding:22px 24px;margin-bottom:28px}
+  .video-cta p{margin:0;color:#d9e4e7;max-width:520px}
+  .video-cta strong{font-family:"Space Grotesk";font-size:19px;color:#fff;display:block;margin-bottom:2px}
+
+  /* labs */
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .card img{height:170px;width:100%;object-fit:cover;cursor:zoom-in;border-bottom:1px solid var(--line)}
+  .card .body{padding:18px 20px 20px}
+  .card h3{font-size:18px;font-weight:600;margin-bottom:6px}
+  .card p{margin:0;color:#45555c;font-size:15px}
+  .card .pill{display:inline-block;font-family:"JetBrains Mono";font-size:11.5px;color:var(--teal);margin-bottom:8px}
+
+  /* sensors */
+  .sensors{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+  .sensor{border-left:3px solid var(--mustard);background:var(--paper);border-radius:0 10px 10px 0;padding:16px 18px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sensor b{font-family:"Space Grotesk";display:block;font-size:16px;margin-bottom:4px}
+  .sensor span{font-size:14.5px;color:#45555c}
+  .note{font-size:13.5px;color:var(--muted);margin-top:16px;font-style:italic}
+
+  /* footer */
+  footer{margin-top:90px;background:var(--navy-deep);color:#cfdcdf;padding:56px 0 40px}
+  footer h2{color:#fff;font-size:30px;margin-bottom:10px}
+  footer p{margin:0 0 24px;max-width:520px}
+  footer small{display:block;margin-top:40px;opacity:.55;font-size:13px}
+
+  /* lightbox */
+  dialog{border:0;padding:0;background:transparent;max-width:92vw;max-height:90vh}
+  dialog::backdrop{background:rgba(10,20,25,.85)}
+  dialog img{max-width:92vw;max-height:86vh;border-radius:8px;background:#fff}
+  dialog button{position:fixed;top:16px;right:20px;background:#fff;border:0;border-radius:999px;width:40px;height:40px;font-size:22px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="#top">Celine<span>.</span>E</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#teams">Design Teams</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#coop">Co-op Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Mechatronics Engineering · University of Waterloo · 2027</div>
+    <h1>Celine Ebrahimian</h1>
+    <p class="lede">I design, program and test the hardware that makes machines move, from motor-control firmware and embedded safety logic to CAD, FEA and automated production lines.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">See projects ↓</a>
+      <a class="btn ghost" href="mailto:celineebrahimian@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/celine-ebrahimian" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="skills">
+      <span>C / C++</span><span>Python</span><span>STM32</span><span>Raspberry Pi</span><span>PLC · TIA Portal</span><span>SolidWorks</span><span>PTC Creo</span><span>FEA</span><span>Altium</span><span>GD&amp;T</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="sec-head"><span class="num">01</span><h2>Projects</h2></div>
+
+    <!-- Exoskeleton (in progress, FYDP) -->
+    <article class="project" id="exoskeleton">
+      <div class="p-top">
+        <div>
+          <h3>Upper-Body Force-Feedback Exoskeleton</h3>
+          <div class="p-meta">Humanoid teleoperation · Started at Minerva Humanoids, continuing as my FYDP</div>
+          <div class="tags"><span>Mechanical design</span><span>Wiring &amp; schematics</span><span>Motor-control firmware</span><span>CAN bus</span><span>User testing</span></div>
+        </div>
+        <span class="status">In progress · FYDP</span>
+      </div>
+      <div class="gallery portrait">
+        <figure><img src="images/exo-side.jpg" alt="Wearing the single-arm exoskeleton prototype, side view showing shoulder and elbow joints and the backpack frame" loading="lazy"><figcaption>First arm, side view</figcaption></figure>
+        <figure><img src="images/exo-raised.jpg" alt="Wearing the exoskeleton with arms raised forward" loading="lazy"><figcaption>In use</figcaption></figure>
+        <figure><img src="images/exo-fixture.jpg" alt="Arm resting in the elbow-motor test fixture used for user testing" loading="lazy"><figcaption>Motor test fixture</figcaption></figure>
+      </div>
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>A wearable upper-body exoskeleton for teleoperating a humanoid robot. It relays the robot's contact forces back to the operator's arms, so they can feel what the robot is doing and control it more accurately.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Owned the full design and build: mechanical, wiring diagrams and schematics, and motor-control firmware</li>
+            <li>Built an arm fixture with an elbow motor controlled over CAN bus to test force feedback on real users</li>
+            <li>Ran user tests to find the maximum safe torque and the smallest torque change people could feel, which set the motor requirements</li>
+            <li>Built and wore the first arm: backpack frame, harness, and shoulder and elbow joints</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Lessons so far</h4>
+          <ul>
+            <li>Test with people before choosing hardware; user tests set the motor requirements</li>
+            <li>How noticeable a force change is depends on the force already applied, so feedback can't use one fixed step size</li>
+            <li>For a wearable, fit and comfort matter as much as performance</li>
+          </ul>
+        </div>
+      </div>
+      <p class="update-note">This project is ongoing as my final-year design project. I'll update this section through the term.</p>
+    </article>
+
+    <!-- Search & Rescue Robot -->
+    <article class="project">
+      <div class="p-top">
+        <div>
+          <h3>Search &amp; Rescue Robot: Motor Control</h3>
+          <div class="p-meta">Autonomous robot · Raspberry Pi 5</div>
+          <div class="tags"><span>C++</span><span>Python</span><span>OpenCV</span><span>PWM + encoders</span><span>Multithreading</span><span>SolidWorks</span></div>
+        </div>
+      </div>
+
+      <!-- To add photos, copy a .gallery block from another project below and point it at your images. -->
+      <div class="video-cta">
+        <div><strong>Watch it run</strong><p>Line following, zone detection and gripper control in action.</p></div>
+        <a class="btn primary" href="PASTE_YOUTUBE_LINK_HERE" target="_blank" rel="noopener">▶ Project video</a>
+      </div>
+
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>A fully autonomous robot that follows a line with OpenCV, detects the target and safe zones, and uses a gripper to move the target, inside a 0.22 × 0.22 × 0.25 m envelope. Scored on speed and successful runs out of 3.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Sized and sourced the drive motors from design calculations</li>
+            <li>Wrote C++ motor firmware (PWM + encoder feedback) for differential drive and the gripper</li>
+            <li>Closed-loop wheel-velocity P-controller, with vision, control and motor loops on separate threads</li>
+            <li>Replaced an unreliable IMU with encoder-based state estimation and motion primitives (precise distance, in-place turns, active braking)</li>
+            <li>Built a Python logging and plotting tool to tune 40+ control parameters</li>
+            <li>Designed drive-system parts in SolidWorks</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Lessons</h4>
+          <ul>
+            <li>Start firmware early; late integration caused the biggest delays</li>
+            <li>Simple beats complex: encoders outperformed the IMU</li>
+            <li>Real dynamics need empirical tuning, not just calculation</li>
+            <li>Most bugs were system-level (hardware × firmware), not isolated</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Gantry -->
+    <article class="project">
+      <div class="p-top">
+        <div>
+          <h3>Two-Axis Gantry Embedded Control System</h3>
+          <div class="p-meta">Embedded control &amp; safety · STM32</div>
+          <div class="tags"><span>C</span><span>STM32</span><span>Interrupts &amp; timers</span><span>ADC / UART</span><span>Oscilloscope</span></div>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure><img src="images/gantry-rig.jpg" alt="Two-axis gantry test rig with target plate" loading="lazy"><figcaption>Test rig</figcaption></figure>
+        <figure style="grid-column:span 2"><img src="images/gantry-board.jpg" alt="STM32 board wired to breadboard with potentiometer" loading="lazy"><figcaption>STM32 + pots</figcaption></figure>
+        <figure class="contain" style="grid-column:span 2"><img src="images/gantry-schematic.jpg" alt="Hand-drawn I/O schematic for the STM32 controller" loading="lazy"><figcaption>I/O schematic</figcaption></figure>
+      </div>
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>The full control and safety system for a two-axis gantry: I/O design, schematic, potentiometer motor input, and positioning repeatable to within 1 cm.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Configured GPIO and memory-mapped I/O to drive motors and read limit switches</li>
+            <li>Replaced polling with interrupt- and timer-based motion control, then simplified the interrupt structure to remove callback conflicts</li>
+            <li>Fail-safe normally-closed limit switches with automatic motor-reverse recovery</li>
+            <li>ADC readings logged over UART (PuTTY); verified on hardware with an oscilloscope and step-by-step motion tests</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Lessons</h4>
+          <ul>
+            <li>Interrupts beat polling for real-time control</li>
+            <li>Build fail-safes into hardware and software from day one</li>
+            <li>Simpler interrupt structures mean fewer timing bugs</li>
+            <li>Hardware bring-up finds timing, noise and I/O issues fastest</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Plant robot -->
+    <article class="project">
+      <div class="p-top">
+        <div>
+          <h3>Plant Maintenance Robot</h3>
+          <div class="p-meta">Autonomous mobile robot · LEGO EV3</div>
+          <div class="tags"><span>C / C++</span><span>Color sensing</span><span>Actuation</span><span>Fault handling</span></div>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure><img src="images/plant-robot.jpg" alt="EV3 plant maintenance robot with water reservoir" loading="lazy"><figcaption>Final robot</figcaption></figure>
+        <figure class="contain"><img src="images/plant-winch-sketch.jpg" alt="Sketch of winch-driven spray mechanism" loading="lazy"><figcaption>Winch spray</figcaption></figure>
+        <figure class="contain"><img src="images/plant-chassis-sketch.jpg" alt="Sketch of custom chassis" loading="lazy"><figcaption>Chassis</figcaption></figure>
+        <figure class="contain" style="grid-column:span 2"><img src="images/plant-course.jpg" alt="Course layout with colored plant markers" loading="lazy"><figcaption>Course layout</figcaption></figure>
+      </div>
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>A robot that identifies plant types by color and gives each one its own water dose, with basic safety and fault handling.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Custom EV3 chassis with a winch-driven spray mechanism</li>
+            <li>Color sensing to classify each plant and choose travel direction</li>
+            <li>Dosing algorithm linking classification to motion and actuation</li>
+            <li>Fault stops and safety logic written in C/C++</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Lessons</h4>
+          <ul>
+            <li>How sensing, decisions and actuation combine into autonomy</li>
+            <li>Fault handling matters even at small scale</li>
+            <li>Turning high-level behavior into embedded logic</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ DESIGN TEAMS ============ -->
+  <section id="teams">
+    <div class="sec-head"><span class="num">02</span><h2>Design Teams</h2></div>
+
+    <article class="project">
+      <div class="p-top">
+        <div>
+          <h3>Electrium Mobility: Electric Motorcycle</h3>
+          <div class="p-meta">Mechanical subteam</div>
+          <div class="tags"><span>FMEA</span><span>Static FEA</span><span>SolidWorks</span><span>Enclosure design</span></div>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure><img src="images/moto-cad.jpg" alt="Electric motorcycle CAD assembly" loading="lazy"><figcaption>Bike assembly</figcaption></figure>
+        <figure class="contain"><img src="images/moto-frame.jpg" alt="Steel motorcycle frame CAD" loading="lazy"><figcaption>Steel frame</figcaption></figure>
+        <figure><img src="images/moto-old-dash.jpg" alt="Original mechanical gauge dashboard" loading="lazy"><figcaption>Before: gauges</figcaption></figure>
+        <figure class="contain"><img src="images/moto-enclosure.jpg" alt="Redesigned dashboard enclosure CAD" loading="lazy"><figcaption>New enclosure</figcaption></figure>
+        <figure class="contain"><img src="images/moto-display.jpg" alt="PCB-based digital display" loading="lazy"><figcaption>Digital display</figcaption></figure>
+      </div>
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>Structural analysis and dashboard redesign for the team's electric motorcycle.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Led FMEA across motorcycle subsystems to catch structural and mounting weak points early</li>
+            <li>Ran static FEA on the steel frame in SolidWorks and raised safety factors to cover dynamic loads</li>
+            <li>Iterated CAD for the dashboard and motor-wheel assemblies to resolve fit and mounting conflicts</li>
+            <li>Replaced mechanical gauges with a PCB-based digital display in a new enclosure</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Impact</h4>
+          <ul>
+            <li>Flagged a suspension mounting bracket for reinforcement before it could fail in fatigue</li>
+            <li>Waterproof dashboard with tighter packaging and better data access</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="p-top">
+        <div>
+          <h3>Formula Electric</h3>
+          <div class="p-meta">Chassis subteam</div>
+          <div class="tags"><span>SolidWorks</span><span>Weldments</span><span>Soldering</span></div>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure class="contain"><img src="images/fe-car.jpg" alt="Formula electric car chassis CAD" loading="lazy"><figcaption>Car assembly</figcaption></figure>
+        <figure class="contain" style="grid-column:span 2"><img src="images/fe-plate.jpg" alt="Chassis mounting plate CAD" loading="lazy"><figcaption>Mounting plate</figcaption></figure>
+        <figure style="grid-column:span 2"><img src="images/fe-floor.jpg" alt="Floor panel in chassis CAD" loading="lazy"><figcaption>Flooring</figcaption></figure>
+      </div>
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>Chassis components for the team's electric formula car.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Designed a weld-on side mounting plate that keeps the car's aerodynamics intact</li>
+            <li>Designed the flooring so every mating part fits in the full CAD assembly</li>
+            <li>Soldered a custom PCB for the electrical subteam</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Impact</h4>
+          <ul>
+            <li>All mating parts fit accurately in the full-car CAD model</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============ LABS ============ -->
+  <section id="labs">
+    <div class="sec-head"><span class="num">03</span><h2>Labs &amp; Workshops</h2></div>
+    <div class="grid-cards">
+      <div class="card">
+        <img src="images/lab-pcb.jpg" alt="Hand-soldered PCB with LEDs and op amps" loading="lazy">
+        <div class="body"><span class="pill">PCB</span><h3>PCB design &amp; assembly</h3><p>Laid out a board, proved it on a breadboard, then soldered op amps, pots, LEDs and passives.</p></div>
+      </div>
+      <div class="card">
+        <div class="body"><span class="pill">Embedded C</span><h3>RTOS on STM32</h3><p>Wrote my own small OS kernel in C, including stack allocation for threads of different sizes.</p></div>
+      </div>
+      <div class="card">
+        <div class="body"><span class="pill">PLC · VHDL</span><h3>Industrial control logic</h3><p>Ladder logic and VHDL for conveyor color detection, a hex counter and button-driven LEDs.</p></div>
+      </div>
+      <div class="card">
+        <img src="images/lab-scope.jpg" alt="Oscilloscope and circuit trainer on lab bench" loading="lazy">
+        <div class="body"><span class="pill">Circuits</span><h3>AC &amp; DC circuit design</h3><p>Designed circuits to spec on schematics and breadboards; measured with DMM and oscilloscope.</p></div>
+      </div>
+      <div class="card">
+        <img src="images/lab-power.jpg" alt="Power electronics lab setup" loading="lazy">
+        <div class="body"><span class="pill">Power</span><h3>Power electronics</h3><p>Built rectifiers and DC-DC converters; measured switching behavior and efficiency.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CO-OP ============ -->
+  <section id="coop">
+    <div class="sec-head"><span class="num">04</span><h2>Sensors &amp; Devices from Co-op</h2></div>
+    <div class="sensors">
+      <div class="sensor"><b>Keyence IX-150</b><span>Surface planarity relative to a mounting nest</span></div>
+      <div class="sensor"><b>LMI Gocator 5512</b><span>Epoxy fill height in opaque containers</span></div>
+      <div class="sensor"><b>Nordson jet dispensing</b><span>Precise epoxy dispensing into small containers</span></div>
+      <div class="sensor"><b>Keyence LV-S62</b><span>Detecting an optically difficult part in a disposal chute</span></div>
+      <div class="sensor"><b>Balluff RFID</b><span>Part ID verification to route parts to the right station</span></div>
+    </div>
+    <p class="note">Project photos and details are covered by confidentiality agreements.</p>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I'm looking for full-time roles in firmware, test and validation, and mechatronics systems engineering.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:celineebrahimian@gmail.com">celineebrahimian@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/celine-ebrahimian" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <small>© 2026 Celine Ebrahimian</small>
+  </div>
+</footer>
+
+<dialog id="lb"><button aria-label="Close" onclick="this.parentElement.close()">×</button><img alt=""></dialog>
+<script>
+  const lb=document.getElementById('lb'), lbImg=lb.querySelector('img');
+  document.querySelectorAll('.gallery img, .card img').forEach(img=>{
+    img.addEventListener('click',()=>{lbImg.src=img.src;lbImg.alt=img.alt;lb.showModal();});
+  });
+  lb.addEventListener('click',e=>{if(e.target===lb)lb.close();});
+</script>
+</body>
+</html>
