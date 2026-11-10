@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#A7CBAF">
+<title>Plant Maintenance Robot — Celine Ebrahimian</title>
+<meta name="description" content="A LEGO EV3 robot that identifies plants by colour and gives each one its own water dose.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-section="projects">
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="../index.html">Celine E<span>.</span></a>
+    <ul>
+      <li><a href="../index.html#projects" data-sec="projects">Projects</a></li>
+      <li><a href="../index.html#teams" data-sec="teams">Design Teams</a></li>
+      <li><a href="../index.html#labs" data-sec="labs">Labs</a></li>
+      <li><a href="../index.html#coop" data-sec="coop">Devices</a></li>
+      <li><a href="#contact" data-sec="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero detail-hero" id="top">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← All projects</a>
+    <h1>Plant Maintenance Robot</h1>
+    <div class="p-meta">Autonomous mobile robot · LEGO EV3</div>
+    <div class="tags"><span>C / C++</span><span>Color sensing</span><span>Actuation</span><span>Fault handling</span></div>
+  </div>
+</header>
+
+<main class="wrap detail-main">
+  <article class="project" id="plant-maintenance-robot">
+          <div class="gallery">
+        <figure><img src="../images/plant-robot.jpg" alt="EV3 plant maintenance robot with water reservoir" loading="lazy"><figcaption>Final robot</figcaption></figure>
+        <figure class="contain"><img src="../images/plant-winch-sketch.jpg" alt="Sketch of winch-driven spray mechanism" loading="lazy"><figcaption>Winch spray</figcaption></figure>
+        <figure class="contain"><img src="../images/plant-chassis-sketch.jpg" alt="Sketch of custom chassis" loading="lazy"><figcaption>Chassis</figcaption></figure>
+        <figure class="contain" style="grid-column:span 2"><img src="../images/plant-course.jpg" alt="Course layout with colored plant markers" loading="lazy"><figcaption>Course layout</figcaption></figure>
+      </div>
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>A robot that identifies plant types by color and gives each one its own water dose, with basic safety and fault handling.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Custom EV3 chassis with a winch-driven spray mechanism</li>
+            <li>Color sensing to classify each plant and choose travel direction</li>
+            <li>Dosing algorithm linking classification to motion and actuation</li>
+            <li>Fault stops and safety logic written in C/C++</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Lessons</h4>
+          <ul>
+            <li>How sensing, decisions and actuation combine into autonomy</li>
+            <li>Fault handling matters even at small scale</li>
+            <li>Turning high-level behavior into embedded logic</li>
+          </ul>
+        </div>
+      </div>
+    
+  </article>
+
+  <div class="pager">
+    <a class="prev" href="two-axis-gantry.html"><small>← Previous</small><b>Two-Axis Gantry Embedded Control System</b></a>
+    <a class="next" href="electrium-motorcycle.html"><small>Next →</small><b>Electrium Mobility: Electric Motorcycle</b></a>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I'm looking for full-time roles in firmware, test and validation, and mechatronics systems engineering.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:celineebrahimian@gmail.com">celineebrahimian@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/celine-ebrahimian" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <small>© 2026 Celine Ebrahimian</small>
+  </div>
+</footer>
+
+<dialog id="lb"><button aria-label="Close" onclick="this.parentElement.close()">×</button><img alt=""></dialog>
+<script src="../script.js"></script>
+</body>
+</html>

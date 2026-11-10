@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#A7CBAF">
+<title>Upper-Body Force-Feedback Exoskeleton — Celine Ebrahimian</title>
+<meta name="description" content="A wearable upper-body exoskeleton that feeds a humanoid robot's contact forces back to the operator's arms. Started at Minerva Humanoids and continuing as my FYDP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-section="projects">
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="../index.html">Celine E<span>.</span></a>
+    <ul>
+      <li><a href="../index.html#projects" data-sec="projects">Projects</a></li>
+      <li><a href="../index.html#teams" data-sec="teams">Design Teams</a></li>
+      <li><a href="../index.html#labs" data-sec="labs">Labs</a></li>
+      <li><a href="../index.html#coop" data-sec="coop">Devices</a></li>
+      <li><a href="#contact" data-sec="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero detail-hero" id="top">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← All projects</a>
+    <h1>Upper-Body Force-Feedback Exoskeleton</h1>
+    <div class="p-meta">Humanoid teleoperation · Started at Minerva Humanoids, continuing as my FYDP</div>
+    <div class="tags"><span>Mechanical design</span><span>Rapid prototyping</span><span>MuJoCo</span><span>Motor-control firmware</span><span>CAN bus</span><span>User testing</span></div>
+    <div><span class="status">In progress · FYDP</span></div>
+  </div>
+</header>
+
+<main class="wrap detail-main">
+  <article class="project" id="exoskeleton">
+          <div class="gallery portrait">
+        <figure><img src="../images/exo-side.jpg" alt="Wearing the single-arm exoskeleton prototype, side view showing shoulder and elbow joints and the backpack frame" loading="lazy"><figcaption>First arm, side view</figcaption></figure>
+        <figure><img src="../images/exo-raised.jpg" alt="Wearing the exoskeleton with arms raised forward" loading="lazy"><figcaption>In use</figcaption></figure>
+        <figure><img src="../images/exo-fixture.jpg" alt="Arm resting in the elbow-motor test fixture used for user testing" loading="lazy"><figcaption>Motor test fixture</figcaption></figure>
+      </div>
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>A wearable upper-body exoskeleton for teleoperating a humanoid robot. It feeds the robot's contact forces back to the operator's arms for more accurate control, and must adjust to fit individual users.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Researched exoskeleton designs and actuation methods: pulley systems, rotary, linear and pneumatic</li>
+            <li>Rapid-prototyped shoulder motor layouts with bearings and 3D-printed parts to find one that works</li>
+            <li>Validated designs in MuJoCo before printing and testing them in real life</li>
+            <li>Ran user tests on an elbow-motor fixture (CAN bus) to set the motor requirements</li>
+            <li>Owned mechanical, electrical and firmware design; built and wore the first arm</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Lessons so far</h4>
+          <ul>
+            <li>Reference papers with proven results for what you're trying to achieve</li>
+            <li>Nail down requirements early and map them to technical specs to prioritize trade-offs</li>
+            <li>Test with people before choosing hardware</li>
+            <li>Force changes are felt relative to the force already applied</li>
+            <li>For a wearable, fit matters as much as performance</li>
+          </ul>
+        </div>
+      </div>
+      <p class="update-note">This project is ongoing as my final-year design project. I'll update this section through the term.</p>
+    
+  </article>
+
+  <div class="pager">
+    <a class="prev" href="formula-electric.html"><small>← Previous</small><b>Formula Electric</b></a>
+    <a class="next" href="search-and-rescue-robot.html"><small>Next →</small><b>Search &amp; Rescue Robot: Motor Control</b></a>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I'm looking for full-time roles in firmware, test and validation, and mechatronics systems engineering.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:celineebrahimian@gmail.com">celineebrahimian@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/celine-ebrahimian" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <small>© 2026 Celine Ebrahimian</small>
+  </div>
+</footer>
+
+<dialog id="lb"><button aria-label="Close" onclick="this.parentElement.close()">×</button><img alt=""></dialog>
+<script src="../script.js"></script>
+</body>
+</html>

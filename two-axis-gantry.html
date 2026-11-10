@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#A7CBAF">
+<title>Two-Axis Gantry Embedded Control System — Celine Ebrahimian</title>
+<meta name="description" content="A lead-screw two-axis gantry driven by two potentiometers on an STM32, with a homing sequence and limit-switch safety.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-section="projects">
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="../index.html">Celine E<span>.</span></a>
+    <ul>
+      <li><a href="../index.html#projects" data-sec="projects">Projects</a></li>
+      <li><a href="../index.html#teams" data-sec="teams">Design Teams</a></li>
+      <li><a href="../index.html#labs" data-sec="labs">Labs</a></li>
+      <li><a href="../index.html#coop" data-sec="coop">Devices</a></li>
+      <li><a href="#contact" data-sec="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero detail-hero" id="top">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← All projects</a>
+    <h1>Two-Axis Gantry Embedded Control System</h1>
+    <div class="p-meta">Embedded control &amp; safety · STM32 · lead-screw axes</div>
+    <div class="tags"><span>C</span><span>STM32</span><span>ADC</span><span>Interrupts &amp; timers</span><span>Limit-switch safety</span><span>Oscilloscope</span></div>
+  </div>
+</header>
+
+<main class="wrap detail-main">
+  <article class="project" id="two-axis-gantry">
+          <div class="gallery">
+        <figure><img src="../images/gantry-rig.jpg" alt="Two-axis gantry test rig with target plate" loading="lazy"><figcaption>Test rig</figcaption></figure>
+        <figure class="contain" style="grid-column:span 2"><img src="../images/gantry-schematic.jpg" alt="Hand-drawn I/O schematic for the STM32 controller" loading="lazy"><figcaption>I/O schematic</figcaption></figure>
+        <figure style="grid-column:span 2"><img src="../images/gantry-board.jpg" alt="STM32 board wired to breadboard with potentiometer" loading="lazy"><figcaption>STM32 + pots</figcaption></figure>
+      </div>
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>Control a lead-screw two-axis gantry with two potentiometers on an STM32, with a limit-switch safety layer. The target must be repeatable to within 1 cm.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li><b>Key decision:</b> each pot maps to an X–Y position, not direction/speed, for better accuracy and repeatability</li>
+            <li>Homing sequence at start-up finds each axis's full range, so ADC readings map to accurate positions</li>
+            <li>Limit switches as a safety layer: if one is hit, the axis backs off slightly</li>
+            <li>Interrupt- and timer-based motion control; tested with UART logs and an oscilloscope</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Lessons</h4>
+          <ul>
+            <li>Home first: knowing the full range makes every reading meaningful</li>
+            <li>Build fail-safes in from day one</li>
+            <li>Interrupts beat polling for real-time control</li>
+          </ul>
+        </div>
+      </div>
+    
+  </article>
+
+  <div class="pager">
+    <a class="prev" href="search-and-rescue-robot.html"><small>← Previous</small><b>Search &amp; Rescue Robot: Motor Control</b></a>
+    <a class="next" href="plant-maintenance-robot.html"><small>Next →</small><b>Plant Maintenance Robot</b></a>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I'm looking for full-time roles in firmware, test and validation, and mechatronics systems engineering.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:celineebrahimian@gmail.com">celineebrahimian@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/celine-ebrahimian" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <small>© 2026 Celine Ebrahimian</small>
+  </div>
+</footer>
+
+<dialog id="lb"><button aria-label="Close" onclick="this.parentElement.close()">×</button><img alt=""></dialog>
+<script src="../script.js"></script>
+</body>
+</html>

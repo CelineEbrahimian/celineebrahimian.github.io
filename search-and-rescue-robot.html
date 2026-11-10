@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#A7CBAF">
+<title>Search & Rescue Robot: Motor Control — Celine Ebrahimian</title>
+<meta name="description" content="An autonomous robot that follows a line, finds a target and carries it to a safe zone. I owned the motor-control firmware and controller tuning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-section="projects">
+
+<nav>
+  <div class="wrap">
+    <a class="mark" href="../index.html">Celine E<span>.</span></a>
+    <ul>
+      <li><a href="../index.html#projects" data-sec="projects">Projects</a></li>
+      <li><a href="../index.html#teams" data-sec="teams">Design Teams</a></li>
+      <li><a href="../index.html#labs" data-sec="labs">Labs</a></li>
+      <li><a href="../index.html#coop" data-sec="coop">Devices</a></li>
+      <li><a href="#contact" data-sec="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero detail-hero" id="top">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← All projects</a>
+    <h1>Search &amp; Rescue Robot: Motor Control</h1>
+    <div class="p-meta">Autonomous robot · Raspberry Pi 5</div>
+    <div class="tags"><span>C++</span><span>Python</span><span>OpenCV</span><span>PWM + encoders</span><span>Multithreading</span><span>SolidWorks</span></div>
+  </div>
+</header>
+
+<main class="wrap detail-main">
+  <article class="project" id="search-and-rescue-robot">
+          <div class="gallery">
+        <figure><img src="../images/sr-robot.jpg" alt="Search and rescue robot stopped on the target zone" loading="lazy" style="object-position:center 85%"><figcaption>Final robot on target</figcaption></figure>
+        <figure><img src="../images/sr-robot-2.jpg" alt="Search and rescue robot, angled view" loading="lazy"><figcaption>Angled view</figcaption></figure>
+        <figure class="contain"><img src="../images/sr-motors.jpg" alt="Gear motors with encoder cables" loading="lazy"><figcaption>Encoder gear motors</figcaption></figure>
+        <figure class="contain"><img src="../images/sr-bracket.jpg" alt="Drive-system bracket in SolidWorks" loading="lazy"><figcaption>Drive part (CAD)</figcaption></figure>
+        <figure class="contain"><img src="../images/sr-wheel.jpg" alt="Wheel designed in SolidWorks" loading="lazy"><figcaption>Wheel (CAD)</figcaption></figure>
+      </div>
+
+      <p class="sub-head">Controller tuning</p>
+      <div class="plots">
+        <figure class="before"><img src="../images/sr-plot-before.jpg" alt="Wheel speed versus time before tuning at a 0.3 m/s target, with both wheels oscillating" loading="lazy"><figcaption><b>Before tuning</b>0.3 m/s target: wheel speeds oscillate.</figcaption></figure>
+        <figure class="after"><img src="../images/sr-plot-after.jpg" alt="Wheel speed versus time after tuning at a 0.75 m/s target, with both wheels settling onto the target" loading="lazy"><figcaption><b>After tuning</b>0.75 m/s target: both wheels settle fast and hold steady.</figcaption></figure>
+        <figure><img src="../images/sr-plot-system.jpg" alt="Full system log showing yaw command versus heading and wheel speeds versus targets" loading="lazy"><figcaption><b>Full system log</b>Heading vs. yaw command; each wheel vs. its target.</figcaption></figure>
+      </div>
+
+      <div class="video-cta">
+        <div><strong>Watch it run</strong><p>Line following, zone detection and gripper control in action.</p></div>
+        <a class="btn primary" href="https://www.youtube.com/watch?v=KuxWpHWcA80" target="_blank" rel="noopener">▶ Project video</a>
+      </div>
+
+      <div class="whw">
+        <div class="what">
+          <h4>What</h4>
+          <p>An autonomous robot that follows a line, finds a target and moves it to a safe zone with a gripper. Limits: 0.22 × 0.22 × 0.25 m and a $300 budget. Scored on speed, weight, and successful runs out of 3.</p>
+        </div>
+        <div class="how">
+          <h4>How</h4>
+          <ul>
+            <li>Sized and selected the drive motors</li>
+            <li>C++ motor firmware: PWM, encoder feedback, closed-loop speed control</li>
+            <li>Vision, control and motor loops on separate threads</li>
+            <li>Swapped an unreliable IMU for encoder-based odometry</li>
+            <li>Python logging tool to tune 40+ parameters</li>
+            <li>Drive-system parts in SolidWorks</li>
+          </ul>
+        </div>
+        <div class="why">
+          <h4>Lessons</h4>
+          <ul>
+            <li>Start firmware early</li>
+            <li>Simple beats complex: encoders beat the IMU</li>
+            <li>Real dynamics need empirical tuning</li>
+            <li>Most bugs came from hardware × firmware interactions</li>
+          </ul>
+        </div>
+      </div>
+    
+  </article>
+
+  <div class="pager">
+    <a class="prev" href="exoskeleton.html"><small>← Previous</small><b>Upper-Body Force-Feedback Exoskeleton</b></a>
+    <a class="next" href="two-axis-gantry.html"><small>Next →</small><b>Two-Axis Gantry Embedded Control System</b></a>
+  </div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>I'm looking for full-time roles in firmware, test and validation, and mechatronics systems engineering.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:celineebrahimian@gmail.com">celineebrahimian@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/celine-ebrahimian" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <small>© 2026 Celine Ebrahimian</small>
+  </div>
+</footer>
+
+<dialog id="lb"><button aria-label="Close" onclick="this.parentElement.close()">×</button><img alt=""></dialog>
+<script src="../script.js"></script>
+</body>
+</html>
