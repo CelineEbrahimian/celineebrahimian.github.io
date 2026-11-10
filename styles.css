@@ -203,5 +203,5 @@
   .pager a:hover{transform:translate(-1px,-1px)}
   .pager small{display:block;font-family:"JetBrains Mono";font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--burgundy)}
   .pager b{font-family:"Space Grotesk";font-size:17px;color:var(--green)}
-  .pager .next{text-align:right}
-  @media (max-width:600px){.pager{grid-template-columns:1fr}.pager .next{text-align:left}}
+  .pager .next{text-align:right;grid-column:2}
+  @media (max-width:600px){.pager{grid-template-columns:1fr}.pager .next{text-align:left;grid-column:auto}}
